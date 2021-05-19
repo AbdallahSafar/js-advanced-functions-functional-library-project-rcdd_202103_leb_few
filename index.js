@@ -58,10 +58,10 @@ const fi = (function() {
           });
         },
 
-    // unpack: function(receiver, arr) {
-    //       for (let val of arr)
-    //         receiver.push(val)
-    //     },
+    unpack: function(receiver, arr) {
+          for (let val of arr)
+            receiver.push(val)
+        },
 
     flatten: function(collection, shallow, newArr=[]) {
           if (!Array.isArray(collection)) return newArr.push(collection)

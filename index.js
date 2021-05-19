@@ -55,7 +55,7 @@ const fi = (function() {
           const arr = collection;
           return arr.sort(function(a, b) {
             return callback(a) - callback(b);
-          })
+          });
         },
 
     unpack: function(receiver, arr) {

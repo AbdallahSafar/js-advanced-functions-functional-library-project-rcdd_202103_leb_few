@@ -63,8 +63,8 @@ const fi = (function() {
             receiver.push(val)
         },
 
-    flatten: function(collection, shallow, newArr=[]) {
-          if (!Array.isArray(collection)) return newArr.push(collection)
+    flatten: function(collection, shallow) {
+      const arr = [];
           if (shallow) {
             for (let val of collection)
               Array.isArray(val) ? this.unpack(newArr, val) : newArr.push(val)

@@ -63,14 +63,13 @@ const fi = (function() {
             receiver.push(val)
         },
 
-    flatten: function(collection, shallow) {
-      const arr = [];
+    flatten: function(collection, shallow,arr=[]) {
           if (shallow) {
             for (let val of collection)
               Array.isArray(val) ? this.unpack(arr, val) : arr.push(val)
           } else {
             for (let val of collection) {
-              this.flatten(val, false)
+              this.flatten(val, false,arr)
             }
           }
           return arr

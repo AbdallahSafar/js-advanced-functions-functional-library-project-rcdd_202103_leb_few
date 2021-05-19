@@ -52,18 +52,18 @@ const fi = (function() {
         },
 
     sortBy: function(collection, callback) {
-          const newArr = [...collection]
-          return newArr.sort(function(a, b) {
+          const arr = collection;
+          return arr.sort(function(a, b) {
             return callback(a) - callback(b)
           })
         },
 
-        unpack: function(receiver, arr) {
+    unpack: function(receiver, arr) {
           for (let val of arr)
             receiver.push(val)
         },
 
-        flatten: function(collection, shallow, newArr=[]) {
+    flatten: function(collection, shallow, newArr=[]) {
           if (!Array.isArray(collection)) return newArr.push(collection)
           if (shallow) {
             for (let val of collection)
@@ -76,7 +76,7 @@ const fi = (function() {
           return newArr
         },
 
-        uniqSorted: function(collection, iteratee) {
+    uniqSorted: function(collection, iteratee) {
           const sorted = [collection[0]]
           for (let idx = 1; idx < collection.length; idx++) {
             if (sorted[idx-1] !== collection[idx])
@@ -85,7 +85,7 @@ const fi = (function() {
           return sorted
         },
 
-        uniq: function(collection, sorted=false, iteratee=false) {
+    uniq: function(collection, sorted=false, iteratee=false) {
           if (sorted) {
             return fi.uniqSorted(collection, iteratee)
           } else if (!iteratee) {
@@ -104,7 +104,7 @@ const fi = (function() {
           }
         },
 
-        keys: function(obj) {
+      keys: function(obj) {
           // Using for loop
           const keys = []
           for (let key in obj){
@@ -113,7 +113,7 @@ const fi = (function() {
           return keys
         },
 
-        values: function(obj) {
+      values: function(obj) {
           // Using for loop
           const values = []
           for (let key in obj){
@@ -126,7 +126,7 @@ const fi = (function() {
 
         },
 
-        functions: function(obj) {
+      functions: function(obj) {
           const functionNames = []
 
           for (let key in obj) {

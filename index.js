@@ -67,13 +67,13 @@ const fi = (function() {
       const arr = [];
           if (shallow) {
             for (let val of collection)
-              Array.isArray(val) ? this.unpack(newArr, val) : newArr.push(val)
+              Array.isArray(val) ? this.unpack(arr, val) : arr.push(val)
           } else {
             for (let val of collection) {
-              this.flatten(val, false, newArr)
+              this.flatten(val, false)
             }
           }
-          return newArr
+          return arr
         },
 
     uniqSorted: function(collection, iteratee) {

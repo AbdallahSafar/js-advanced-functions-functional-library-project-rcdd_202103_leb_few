@@ -54,7 +54,7 @@ const fi = (function() {
     sortBy: function(collection, callback) {
           const arr = collection;
           return arr.sort(function(a, b) {
-            return callback(a) - callback(b)
+            return callback(a) - callback(b);
           })
         },
 
